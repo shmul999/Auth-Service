@@ -1,0 +1,13 @@
+# See: https://taskfile.dev/api/
+
+version: '3'
+
+tasks:
+  migrate:
+    desc: "Run database migrations"
+    cmds:
+      - go run ./cmd/migrator --storage-path=./storage/sso.db --migrations-path=./internal/migrations
+  run:
+    desc: "Run app"
+    cmds:
+      - go run ./cmd/sso --config=./config/local.yaml
